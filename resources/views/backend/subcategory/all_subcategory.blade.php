@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">SubCategories</h4>
-            <a href="{{ route('add.subcategory') }}"><button type="button" class="btn btn-success btn-fw" style="float: right">Create Category</button></a>
+            <a href="{{ route('add.subcategory') }}"><button type="button" class="btn btn-success btn-fw" style="float: right">Create SubCategory</button></a>
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>

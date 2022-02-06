@@ -5,7 +5,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\DistrictController;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SubDistrictController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +63,15 @@ Route::post('subdistrict/add', [SubDistrictController::class, 'StoreSubDistrict'
 Route::get('subdistrict/edit/{id}', [SubDistrictController::class, 'EditSubDistrict'])->name('edit.subdistrict');
 Route::post('subdistrict/update/{id}', [SubDistrictController::class, 'UpdateSubDistrict'])->name('update.subdistrict');
 Route::get('subdistrict/delete/{id}', [SubDistrictController::class, 'DeleteSubDistrict'])->name('delete.subdistrict');
+
+//Json Data
+Route::get('/get/subcategory/{category_id}', [PostController::class, 'GetSubCategory']);
+Route::get('/get/subdistrict/{district_id}', [PostController::class, 'GetSubDistrict']);
+
+//Post Controller
+Route::get('post/add', [PostController::class, 'AddPost'])->name('add.post');
+Route::post('post/add', [PostController::class, 'StorePost'])->name('store.post');
+Route::get('posts', [PostController::class, 'AllPost'])->name('all.post');
+Route::get('post/edit{id}', [PostController::class, 'EditPost'])->name('edit.post');
+Route::post('post/edit{id}', [PostController::class, 'UpdatePost'])->name('update.post');
+Route::get('post/delete{id}', [PostController::class, 'DeletePost'])->name('delete.post');

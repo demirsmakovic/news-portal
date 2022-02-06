@@ -28,8 +28,8 @@
                 <label for="district_id">District Name</label>
                 <select class="form-control" name="district_id"  id="exampleFormControlSelect2">
                   <option disabled="" selected="">--Select District--</option>
-                  @foreach ($district as $row)
-                  <option value="{{ $row->id }}">{{ $row->district_en }} | {{ $row->district_sr }}</option>
+                  @foreach ($districts as $district)
+                  <option value="{{ $district->id }}">{{ $district->district_en }} | {{ $district->district_sr }}</option>
                   @endforeach
                 </select>
               </div>

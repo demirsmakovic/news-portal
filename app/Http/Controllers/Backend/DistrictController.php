@@ -10,7 +10,7 @@ class DistrictController extends Controller
 {
     public function AllDistrict()
     {
-        $allData = DB::table('district')->OrderBy('id', 'desc')->paginate(3);
+        $allData = DB::table('districts')->OrderBy('id', 'desc')->paginate(3);
         return view('backend.district.all_district', compact('allData'));
     }
 
@@ -22,14 +22,14 @@ class DistrictController extends Controller
     public function StoreDistrict(Request $request)
     {
         $validated = $request->validate([
-            'district_en' => 'required|unique:district|max:255',
-            'district_sr' => 'required|unique:district|max:255',
+            'district_en' => 'required|unique:districts|max:255',
+            'district_sr' => 'required|unique:districts|max:255',
         ]);
 
         $data = array();
         $data['district_en'] = $request->district_en;
         $data['district_sr'] = $request->district_sr;
-        DB::table('district')->insert($data);
+        DB::table('districts')->insert($data);
 
         $notification = array(
             'message' => 'District Added Successfull',
@@ -41,21 +41,21 @@ class DistrictController extends Controller
 
     public function EditDistrict($id)
     {
-        $data = DB::table('district')->where('id', $id)->first();
+        $data = DB::table('districts')->where('id', $id)->first();
         return view('backend.district.edit_district', compact('data'));
     }
 
     public function UpdateDistrict(Request $request, $id)
     {
         $validated = $request->validate([
-            'district_en' => 'required|unique:district|max:255',
-            'district_sr' => 'required|unique:district|max:255',
+            'district_en' => 'required|unique:districts|max:255',
+            'district_sr' => 'required|unique:districts|max:255',
         ]);
 
         $data = array();
         $data['district_en'] = $request->district_en;
         $data['district_sr'] = $request->district_sr;
-        DB::table('district')->where('id', $id)->update($data);
+        DB::table('districts')->where('id', $id)->update($data);
 
         $notification = array(
             'message' => 'District Updated Successfull',
@@ -67,7 +67,7 @@ class DistrictController extends Controller
 
     public function DeleteDistrict($id)
     {
-        DB::table('district')->where('id', $id)->delete();
+        DB::table('districts')->where('id', $id)->delete();
 
         $notification = array(
             'message' => 'District Deleted Successfull',
