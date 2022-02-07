@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\DistrictController;
 use App\Http\Controllers\Backend\PostController;
+use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\SubDistrictController;
 
 
@@ -75,3 +76,32 @@ Route::get('posts', [PostController::class, 'AllPost'])->name('all.post');
 Route::get('post/edit{id}', [PostController::class, 'EditPost'])->name('edit.post');
 Route::post('post/edit{id}', [PostController::class, 'UpdatePost'])->name('update.post');
 Route::get('post/delete{id}', [PostController::class, 'DeletePost'])->name('delete.post');
+
+//Social Route
+Route::get('socials/setting', [SettingController::class, 'SocialSetting'])->name('social.setting');
+Route::post('socials/setting{id}', [SettingController::class, 'SocialUpdate'])->name('social.update');
+
+//Seo Route
+Route::get('seo/setting', [SettingController::class, 'SeoSetting'])->name('seo.setting');
+Route::post('seo/setting{id}', [SettingController::class, 'SeoUpdate'])->name('seo.update');
+
+//Live TV Route
+Route::get('livetv/setting', [SettingController::class, 'LiveTVSetting'])->name('livetv.setting');
+Route::post('livetv/update{id}', [SettingController::class, 'LiveTVUpdate'])->name('livetv.update');
+Route::get('livetv/active/{id}', [SettingController::class, 'LiveTVactive'])->name('livetv.active');
+Route::get('livetv/deactive/{id}', [SettingController::class, 'LiveTVdeactive'])->name('livetv.deactive');
+
+//Notice Route
+Route::get('notice/setting', [SettingController::class, 'NoticeSetting'])->name('notice.setting');
+Route::post('notice/update{id}', [SettingController::class, 'NoticeUpdate'])->name('notice.update');
+Route::get('notice/active/{id}', [SettingController::class, 'NoticeActive'])->name('notice.active');
+Route::get('notice/deactive/{id}', [SettingController::class, 'NoticeDeactive'])->name('notice.deactive');
+
+//Website Controller
+Route::get('websites', [SettingController::class, 'AllWebSite'])->name('all.website');
+Route::get('website/add', [SettingController::class, 'AddWebSite'])->name('add.website');
+Route::post('website/add', [SettingController::class, 'StoreWebSite'])->name('store.website');
+Route::get('website/edit/{id}', [SettingController::class, 'EditWebSite'])->name('edit.website');
+Route::post('website/update/{id}', [SettingController::class, 'UpdateWebSite'])->name('update.website');
+Route::get('website/delete/{id}', [SettingController::class, 'DeleteWebSite'])->name('delete.website');
+
