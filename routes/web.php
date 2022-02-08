@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\DistrictController;
+use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\SubDistrictController;
@@ -32,7 +33,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //AdminController Route
 Route::get('admin/logout', [AdminController::class, 'Logout'])->name('admin.logout');
 
-//Category Controller
+//Category Route
 Route::get('categories', [CategoryController::class, 'AllCategory'])->name('all.category');
 Route::get('category/add', [CategoryController::class, 'AddCategory'])->name('add.category');
 Route::post('category/add', [CategoryController::class, 'StoreCategory'])->name('store.category');
@@ -41,7 +42,7 @@ Route::post('category/update/{id}', [CategoryController::class, 'UpdateCategory'
 Route::get('category/delete/{id}', [CategoryController::class, 'DeleteCategory'])->name('delete.category');
 
 
-//SubCategory Controller
+//SubCategory Route
 Route::get('subcategories', [SubCategoryController::class, 'AllSubCategory'])->name('all.subcategory');
 Route::get('subcategory/add', [SubCategoryController::class, 'AddSubCategory'])->name('add.subcategory');
 Route::post('subcategory/add', [SubCategoryController::class, 'StoreSubCategory'])->name('store.subcategory');
@@ -49,7 +50,7 @@ Route::get('subcategory/edit/{id}', [SubCategoryController::class, 'EditSubCateg
 Route::post('subcategory/update/{id}', [SubCategoryController::class, 'UpdateSubCategory'])->name('update.subcategory');
 Route::get('subcategory/delete/{id}', [SubCategoryController::class, 'DeleteSubCategory'])->name('delete.subcategory');
 
-//District Controller
+//District Route
 Route::get('district', [DistrictController::class, 'AllDistrict'])->name('all.district');
 Route::get('district/add', [DistrictController::class, 'AddDistrict'])->name('add.district');
 Route::post('district/add', [DistrictController::class, 'StoreDistrict'])->name('store.district');
@@ -57,7 +58,7 @@ Route::get('district/edit/{id}', [DistrictController::class, 'EditDistrict'])->n
 Route::post('district/update/{id}', [DistrictController::class, 'UpdateDistrict'])->name('update.district');
 Route::get('district/delete/{id}', [DistrictController::class, 'DeleteDistrict'])->name('delete.district');
 
-//SubDistrict Controller
+//SubDistrict Route
 Route::get('subdistrict', [SubDistrictController::class, 'AllSubDistrict'])->name('all.subdistrict');
 Route::get('subdistrict/add', [SubDistrictController::class, 'AddSubDistrict'])->name('add.subdistrict');
 Route::post('subdistrict/add', [SubDistrictController::class, 'StoreSubDistrict'])->name('store.subdistrict');
@@ -69,13 +70,13 @@ Route::get('subdistrict/delete/{id}', [SubDistrictController::class, 'DeleteSubD
 Route::get('/get/subcategory/{category_id}', [PostController::class, 'GetSubCategory']);
 Route::get('/get/subdistrict/{district_id}', [PostController::class, 'GetSubDistrict']);
 
-//Post Controller
+//Post Route
 Route::get('post/add', [PostController::class, 'AddPost'])->name('add.post');
 Route::post('post/add', [PostController::class, 'StorePost'])->name('store.post');
 Route::get('posts', [PostController::class, 'AllPost'])->name('all.post');
-Route::get('post/edit{id}', [PostController::class, 'EditPost'])->name('edit.post');
-Route::post('post/edit{id}', [PostController::class, 'UpdatePost'])->name('update.post');
-Route::get('post/delete{id}', [PostController::class, 'DeletePost'])->name('delete.post');
+Route::get('post/edit/{id}', [PostController::class, 'EditPost'])->name('edit.post');
+Route::post('post/edit/{id}', [PostController::class, 'UpdatePost'])->name('update.post');
+Route::get('post/delete/{id}', [PostController::class, 'DeletePost'])->name('delete.post');
 
 //Social Route
 Route::get('socials/setting', [SettingController::class, 'SocialSetting'])->name('social.setting');
@@ -97,11 +98,19 @@ Route::post('notice/update{id}', [SettingController::class, 'NoticeUpdate'])->na
 Route::get('notice/active/{id}', [SettingController::class, 'NoticeActive'])->name('notice.active');
 Route::get('notice/deactive/{id}', [SettingController::class, 'NoticeDeactive'])->name('notice.deactive');
 
-//Website Controller
+//Website Route
 Route::get('websites', [SettingController::class, 'AllWebSite'])->name('all.website');
 Route::get('website/add', [SettingController::class, 'AddWebSite'])->name('add.website');
 Route::post('website/add', [SettingController::class, 'StoreWebSite'])->name('store.website');
 Route::get('website/edit/{id}', [SettingController::class, 'EditWebSite'])->name('edit.website');
 Route::post('website/update/{id}', [SettingController::class, 'UpdateWebSite'])->name('update.website');
 Route::get('website/delete/{id}', [SettingController::class, 'DeleteWebSite'])->name('delete.website');
+
+//Gallery Route
+Route::get('photo/gallery', [GalleryController::class, 'PhotoGallery'])->name('photo.gallery');
+Route::get('photo/add', [GalleryController::class, 'AddPhoto'])->name('add.photo');
+Route::post('photo/add', [GalleryController::class, 'StorePhoto'])->name('store.photo');
+Route::get('photo/edit/{id}', [GalleryController::class, 'EditPhoto'])->name('edit.photo');
+Route::post('photo/edit/{id}', [GalleryController::class, 'UpdatePhoto'])->name('update.photo');
+Route::get('photo/delete/{id}', [GalleryController::class, 'DeletePhoto'])->name('delete.photo');
 

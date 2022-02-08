@@ -67,7 +67,7 @@
       <li class="nav-item menu-items">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <span class="menu-icon">
-            <i class="mdi mdi-laptop"></i>
+            <i class="mdi mdi-file-document-box"></i>
           </span>
           <span class="menu-title">Categories</span>
           <i class="menu-arrow"></i>
@@ -99,7 +99,7 @@
       <li class="nav-item menu-items">
         <a class="nav-link" data-toggle="collapse" href="#posts" aria-expanded="false" aria-controls="posts">
           <span class="menu-icon">
-            <i class="mdi mdi-security"></i>
+            <i class="fab fa-blogger-b"></i>
           </span>
           <span class="menu-title">Posts</span>
           <i class="menu-arrow"></i>
@@ -133,7 +133,7 @@
       <li class="nav-item menu-items">
         <a class="nav-link" data-toggle="collapse" href="#website" aria-expanded="false" aria-controls="website">
           <span class="menu-icon">
-            <i class="mdi mdi-access-point"></i>
+            <i class="fab fa-internet-explorer"></i>
           </span>
           <span class="menu-title">Website</span>
           <i class="menu-arrow"></i>
@@ -142,6 +142,21 @@
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ route('add.website') }}"> Add Website </a></li>
             <li class="nav-item"> <a class="nav-link" href="{{ route('all.website') }}"> All Website </a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#photo" aria-expanded="false" aria-controls="photo">
+          <span class="menu-icon">
+            <i class="fas fa-photo-video"></i>
+          </span>
+          <span class="menu-title">Gallery</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="photo">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ route('photo.gallery') }}"> Photo Gallery </a></li>
           </ul>
         </div>
       </li>
